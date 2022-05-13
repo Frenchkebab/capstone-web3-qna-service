@@ -16,6 +16,23 @@ async function main() {
   const KNOService = await hre.ethers.getContractFactory(''); // TODO: contract name
   const knoService = await KNOService.deploy();
   console.log(`KNOService deployed to: ${knoService.address}`);
+
+  // Mint initial supply
+
+  // Write contract address to a file to read from the frontdent
+  const data = {
+    KNOTokenAddress: knoToken.address,
+    KNOServiceAddress: knoService.address,
+  };
+
+  fs.writeFile(
+    './frontend/src/artifacts/contracts//address.json',
+    JSON.stringify(data),
+    function (err) {
+      if (err) throw err;
+      console.log('Contract addresses saved successfully');
+    }
+  );
 }
 
 main()

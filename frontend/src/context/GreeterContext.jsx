@@ -1,12 +1,12 @@
-import { ethers } from "ethers";
-import React from "react";
-import { getProvider } from "../provider";
-import { useWallet } from "./WalletContext";
-import greeterArtifact from "../abis/Greeter.json";
-import deployedAddress from "../helpers/deployedAddress.json";
+import { ethers } from 'ethers';
+import React from 'react';
+import { getProvider } from '../provider';
+import { useWallet } from './WalletContext';
+import greeterArtifact from '../abis/Greeter.json';
+import deployedAddress from '../helpers/deployedAddress.json';
 
 const initialState = {
-  greeting: "",
+  greeting: '',
   updateGreeting: () => {},
 };
 
@@ -22,7 +22,11 @@ export const GreeterProvider = ({ children }) => {
     async function init() {
       const _provider = await getProvider();
       const signer = _provider.getSigner();
-      const _contract = new ethers.Contract(deployedAddress.Greeter, greeterArtifact.abi, signer);
+      const _contract = new ethers.Contract(
+        deployedAddress.Greeter,
+        greeterArtifact.abi,
+        signer
+      );
       setContract(_contract);
       const _greeting = await _contract.greet();
       setMessage(_greeting);
@@ -48,10 +52,9 @@ export const GreeterProvider = ({ children }) => {
   return (
     <GreeterContext.Provider
       value={{
-        greeting: message || "",
+        greeting: message || '',
         updateGreeting,
-      }}
-    >
+      }}>
       {children}
     </GreeterContext.Provider>
   );

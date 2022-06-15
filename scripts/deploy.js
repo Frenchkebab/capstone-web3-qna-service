@@ -8,13 +8,13 @@ async function main() {
   console.log('Deploying with admin address: ', admin);
 
   // Deploy token contract
-  const KNOToken = await ethers.getContractFactory(''); // TODO: contract name
-  const knoToken = await KNOToken.deploy();
+  const KNOToken = await ethers.getContractFactory('KNOToken'); // TODO: contract name
+  const knoToken = await KNOToken.deploy(10000);
   console.log(`Token deployed to: ${knoToken.address}`);
 
   // Deploy KNO service contract
-  const KNOService = await hre.ethers.getContractFactory(''); // TODO: contract name
-  const knoService = await KNOService.deploy();
+  const KNOService = await hre.ethers.getContractFactory('KNOService'); // TODO: contract name
+  const knoService = await KNOService.deploy(knoToken.address);
   console.log(`KNOService deployed to: ${knoService.address}`);
 
   // Mint initial supply

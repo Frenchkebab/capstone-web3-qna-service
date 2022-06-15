@@ -1,8 +1,8 @@
-import Footer from "./components/Footer";
-import Greeter from "./components/Greeter";
-import Navbar from "./components/Navbar";
-import { GreeterProvider } from "./context/GreeterContext";
-import { WalletProvider } from "./context/WalletContext";
+import Footer from './components/Footer';
+import Greeter from './components/Greeter';
+import Navbar from './components/Navbar';
+import { GreeterProvider } from './context/GreeterContext';
+import { WalletProvider } from './context/WalletContext';
 
 function App() {
   return (

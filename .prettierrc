@@ -16,6 +16,12 @@
       "options": {
         "singleQuote": true
       }
+    },
+    {
+      "files": "*.jsx",
+      "options": {
+        "singleQuote": true
+      }
     }
   ]
 }

@@ -25,8 +25,8 @@ async function main() {
     KNOServiceAddress: knoService.address,
   };
 
-  fs.writeFile(
-    './frontend/src/artifacts/contracts//address.json',
+  fs.writeFileSync(
+    './frontend/src/helpers//address.json',
     JSON.stringify(data),
     function (err) {
       if (err) throw err;

@@ -1,0 +1,12 @@
+.textarea {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  min-width: 400px;
+  min-height: 273px;
+  border-radius: 5px;
+  border: 1px solid gainsboro;
+  resize: none;
+}
+.textarea:disabled {
+  cursor: not-allowed;
+}

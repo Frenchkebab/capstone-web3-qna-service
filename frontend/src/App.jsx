@@ -1,7 +1,5 @@
 import Footer from './components/Footer';
-import Greeter from './components/Greeter';
 import Navbar from './components/Navbar';
-import { GreeterProvider } from './context/GreeterContext';
 import { WalletProvider } from './context/WalletContext';
 
 function App() {
@@ -11,9 +9,9 @@ function App() {
         <div className="container">
           <Navbar />
           <div>
-            <GreeterProvider>
+            {/* <GreeterProvider>
               <Greeter />
-            </GreeterProvider>
+            </GreeterProvider> */}
           </div>
           <Footer />
         </div>

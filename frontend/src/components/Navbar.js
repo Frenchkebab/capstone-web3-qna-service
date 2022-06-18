@@ -10,6 +10,8 @@ import AddPostComponent from './AddPostComponent/AddPostComponent';
 import Modal from './Modal/Modal';
 import InputFieldTitle from './InputField/InputFieldTitle';
 import InputFieldBody from './InputField/InputFieldBody';
+import { ipfs } from '../helpers/ipfs.js';
+const { createDir, uploadPostQuestion, getData } = ipfs();
 
 export default function Navbar() {
   const { setWalletAddress, walletAddress } = useWallet();
@@ -38,14 +40,18 @@ export default function Navbar() {
   };
 
   // Post
-  const onClickPost = () => {
-    const PostData = {
+  const onClickPost = async () => {
+    const postData = JSON.stringify({
       userWalletAddress: walletAddress,
       time: new Date().getTime(),
       title: inputFieldTitle,
       body: inputFieldBody,
-    };
-    console.log(PostData);
+    });
+
+    await createDir(walletAddress);
+    const postCid = await uploadPostQuestion(walletAddress, postData);
+    await getData(postCid.toString());
+
     setInputFieldTitle('');
     setInputFieldBody('');
   };

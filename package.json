@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.6.0",
+    "buffer": "^6.0.3",
     "react-bootstrap": "^2.4.0"
   }
 }
